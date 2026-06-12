@@ -1,0 +1,38 @@
+{
+  "name": "codex-zh-automation-kit",
+  "version": "0.1.0",
+  "description": "面向中文用户的 Codex 自动化配置、来源化日报和 Excel 交付工具包。",
+  "author": {
+    "name": "Spencer-x-x",
+    "url": "https://github.com/Spencer-x-x"
+  },
+  "homepage": "https://github.com/Spencer-x-x/codex-zh-automation-kit#readme",
+  "repository": "https://github.com/Spencer-x-x/codex-zh-automation-kit",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "automation",
+    "chinese",
+    "daily-brief",
+    "xlsx"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex 中文自动化工具包",
+    "shortDescription": "把中文需求转成可校验自动化、来源化日报和 Excel",
+    "longDescription": "提供三个可组合技能：生成中文自动化配置、制作带来源和访问异常记录的日报，以及使用 Python 标准库导出 XLSX。",
+    "developerName": "Spencer-x-x",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Spencer-x-x/codex-zh-automation-kit",
+    "defaultPrompt": [
+      "把我的中文需求整理成可校验的自动化配置。",
+      "生成带来源和访问异常说明的中文日报。",
+      "把日报 JSON 导出为 Excel 文件。"
+    ]
+  }
+}
+

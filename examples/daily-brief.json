@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-06-12T09:00:00+08:00",
+  "title": "每日 AI 官方动态示例",
+  "summary": "本文件演示日报接口，不代表 2026 年 6 月 12 日的真实新闻汇总。",
+  "items": [
+    {
+      "title": "OpenAI 官方新闻入口",
+      "summary": "使用官方新闻页面作为可追溯来源的示例条目。",
+      "source_url": "https://openai.com/news/",
+      "published_at": "2026-06-12T00:00:00Z"
+    }
+  ],
+  "access_issues": [
+    {
+      "source_url": "https://example.com/restricted-feed",
+      "reason": "示例：来源需要登录，未纳入已核验条目。"
+    }
+  ]
+}
+

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate examples
+        run: |
+          python3 scripts/validate_config.py examples/automation.json
+          python3 scripts/validate_report.py examples/daily-brief.json
+      - name: Export and verify demo workbook
+        run: |
+          mkdir -p outputs
+          python3 scripts/report_to_xlsx.py examples/daily-brief.json outputs/demo.xlsx
+          python3 -m zipfile -t outputs/demo.xlsx
+

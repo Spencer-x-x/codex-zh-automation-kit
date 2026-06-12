@@ -1,0 +1,5 @@
+interface:
+  display_name: "日报导出 Excel"
+  short_description: "将来源化日报 JSON 导出为无需依赖的 XLSX 文件"
+  default_prompt: "Use $report-to-xlsx to validate my daily brief JSON and export it as an XLSX workbook."
+

@@ -1,0 +1,16 @@
+{
+  "name": "每日 AI 官方动态",
+  "schedule": "0 9 * * *",
+  "timezone": "Asia/Shanghai",
+  "task": "汇总过去 24 小时 OpenAI 官方新闻与 GitHub 发布动态，生成带来源的中文日报并导出 Excel。",
+  "sources": [
+    "https://openai.com/news/",
+    "https://github.com/openai"
+  ],
+  "output": {
+    "format": "xlsx",
+    "path": "outputs/ai-daily.xlsx"
+  },
+  "fallback": "记录无法访问的来源和原因，继续使用已核验的可用来源，并明确标注未复核内容。"
+}
+

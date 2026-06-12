@@ -1,0 +1,5 @@
+interface:
+  display_name: "来源化中文日报"
+  short_description: "生成带来源、发布时间和访问异常记录的中文日报"
+  default_prompt: "Use $source-backed-daily-brief to create a Chinese daily brief with verified sources and access issues."
+
