@@ -90,6 +90,22 @@ class ValidateConfigTests(unittest.TestCase):
 
         self.assertIn("schedule 必须是五段 cron 表达式", errors)
 
+    def test_rejects_unsupported_schedule_tokens(self):
+        validator = load_validator()
+        config = {
+            "name": "每日简报",
+            "schedule": "daily 9 * * *",
+            "timezone": "Asia/Shanghai",
+            "task": "生成简报",
+            "sources": ["https://example.com"],
+            "output": {"format": "json", "path": "report.json"},
+            "fallback": "记录失败",
+        }
+
+        errors = validator.validate_config(config)
+
+        self.assertIn("schedule 只能包含数字、星号、逗号、连字符和斜杠", errors)
+
     def test_rejects_unknown_timezone(self):
         validator = load_validator()
         config = {

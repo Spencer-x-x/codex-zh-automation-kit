@@ -2,6 +2,7 @@
 """Validate Codex Chinese automation configuration JSON."""
 
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -17,6 +18,7 @@ REQUIRED_FIELDS = (
     "output",
     "fallback",
 )
+CRON_TOKEN_RE = re.compile(r"^[0-9*,\-/]+$")
 
 
 def _is_non_empty_string(value):
@@ -44,8 +46,12 @@ def validate_config(config):
             errors.append(f"{field} 必须是非空字符串")
 
     schedule = config.get("schedule")
-    if _is_non_empty_string(schedule) and len(schedule.split()) != 5:
-        errors.append("schedule 必须是五段 cron 表达式")
+    if _is_non_empty_string(schedule):
+        schedule_parts = schedule.split()
+        if len(schedule_parts) != 5:
+            errors.append("schedule 必须是五段 cron 表达式")
+        elif any(not CRON_TOKEN_RE.match(part) for part in schedule_parts):
+            errors.append("schedule 只能包含数字、星号、逗号、连字符和斜杠")
 
     timezone = config.get("timezone")
     if _is_non_empty_string(timezone):
